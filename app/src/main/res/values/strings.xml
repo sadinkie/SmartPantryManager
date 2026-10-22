@@ -28,4 +28,18 @@
     <string name="err_qty_positive">Quantity must be greater than 0</string>
     <string name="err_qty_large">Quantity is too large</string>
     <string name="err_unit_invalid">Choose a unit from the list</string>
+    <string name="sugg_empty_title">No recipes match your pantry yet</string>
+    <string name="sugg_empty_hint">Add more ingredients to unlock recipes</string>
+    <string name="sugg_empty_pantry_hint">Add ingredients to see recipes you can cook</string>
+    <string name="btn_add_ingredients">Add ingredients</string>
+    <string name="sugg_header_ready">Ready to cook (%1$d)</string>
+    <string name="sugg_header_almost">Almost there: missing 1 ingredient (%1$d)</string>
+    <string name="sugg_header_almost_none">No full matches yet. These are missing just 1 ingredient (%1$d)</string>
+    <string name="sugg_short_on">Short on: %1$s</string>
+    <string name="recipe_meta">%1$d min  •  %2$s</string>
+
+    <plurals name="ingredient_count">
+        <item quantity="one">%d ingredient</item>
+        <item quantity="other">%d ingredients</item>
+    </plurals>
 </resources>
