@@ -54,4 +54,13 @@
         <item quantity="one">You are missing %d ingredient</item>
         <item quantity="other">You are missing %d ingredients</item>
     </plurals>
+
+    <string name="settings_section_prefs">Preferences</string>
+    <string name="settings_almost_title">Show \'Almost There\' recipes</string>
+    <string name="settings_almost_desc">List recipes missing just one ingredient in a separate section</string>
+    <string name="settings_highlight_title">Expiring-soon alerts</string>
+    <string name="settings_highlight_desc">Highlight pantry items that expire within 3 days</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_about_text">Smart Pantry Manager suggests recipes you can cook using only the ingredients you already have, helping cut food waste.</string>
+    <string name="settings_version">Version %1$s</string>
 </resources>

@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import android.content.Intent;
+import com.example.smartpantrymanager.util.AppPreferences;
 
 /** Pantry tab: lists every ingredient and lets the user delete by swiping. */
 public class PantryFragment extends Fragment {
@@ -69,6 +70,7 @@ public class PantryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        adapter.setHighlightExpiring(AppPreferences.isHighlightExpiring(requireContext()));
         loadPantry();
     }
 
