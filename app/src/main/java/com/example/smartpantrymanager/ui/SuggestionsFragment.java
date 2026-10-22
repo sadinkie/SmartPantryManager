@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import android.content.Intent;
 
 /**
  * Suggestions tab: runs the strict-matching rule against the current pantry
@@ -59,11 +59,11 @@ public class SuggestionsFragment extends Fragment {
         tvEmptyHint = view.findViewById(R.id.tv_empty_hint);
         Button goPantry = view.findViewById(R.id.btn_go_pantry);
 
-        adapter = new RecipeAdapter(recipe ->
-                // TEMPORARY: replaced in Step 9 with an Intent to the Recipe Detail screen
-                Toast.makeText(requireContext(),
-                        "Detail screen arrives in Step 9: " + recipe.getName(),
-                        Toast.LENGTH_SHORT).show());
+        adapter = new RecipeAdapter(recipe -> {
+            Intent intent = new Intent(requireContext(), RecipeDetailActivity.class);
+            intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, recipe.getId());
+            startActivity(intent);
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
 

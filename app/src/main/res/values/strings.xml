@@ -42,4 +42,16 @@
         <item quantity="one">%d ingredient</item>
         <item quantity="other">%d ingredients</item>
     </plurals>
+
+    <string name="section_ingredients">Ingredients</string>
+    <string name="section_method">Method</string>
+    <string name="detail_ready">You have everything you need</string>
+    <string name="msg_recipe_not_found">Recipe not found</string>
+    <string name="desc_have_ingredient">In your pantry</string>
+    <string name="desc_missing_ingredient">Not enough in your pantry</string>
+
+    <plurals name="missing_count">
+        <item quantity="one">You are missing %d ingredient</item>
+        <item quantity="other">You are missing %d ingredients</item>
+    </plurals>
 </resources>
