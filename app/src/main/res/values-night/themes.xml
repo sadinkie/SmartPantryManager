@@ -1,7 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SmartPantryManager" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.SmartPantryManager" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/pantry_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/green_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_green_container</item>
+        <item name="colorSecondary">@color/accent_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/green_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_green_container</item>
+        <item name="android:colorBackground">@color/surface_cream</item>
+        <item name="colorSurface">@color/surface_cream</item>
+        <item name="colorOnSurface">@color/text_dark</item>
+        <item name="colorError">@color/error_red</item>
+
+        <!-- white status-bar icons on the green toolbar -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Smart Pantry palette: fresh green with a warm orange accent -->
+    <color name="pantry_green">#2E7D32</color>
+    <color name="pantry_green_dark">#1B5E20</color>
+    <color name="green_container">#C8E6C9</color>
+    <color name="on_green_container">#0B3D12</color>
+    <color name="accent_orange">#EF6C00</color>
+    <color name="orange_container">#FFE0B2</color>
+    <color name="surface_cream">#FBFAF5</color>
+    <color name="text_dark">#1C1B1F</color>
+    <color name="error_red">#B3261E</color>
+    <color name="text_muted">#5F6368</color>
 </resources>
