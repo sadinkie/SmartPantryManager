@@ -8,4 +8,24 @@
     <string name="add_ingredient">Add ingredient</string>
     <string name="pantry_removed">%1$s removed</string>
     <string name="undo">Undo</string>
+    <string name="edit_ingredient">Edit ingredient</string>
+    <string name="hint_name">Ingredient name</string>
+    <string name="hint_quantity">Quantity</string>
+    <string name="hint_unit">Unit</string>
+    <string name="hint_expiry">Expiry date (optional)</string>
+    <string name="btn_add_to_pantry">Add to pantry</string>
+    <string name="btn_save_changes">Save changes</string>
+    <string name="btn_clear_date">Clear date</string>
+    <string name="select_expiry_title">Select expiry date</string>
+    <string name="msg_added">%1$s added to pantry</string>
+    <string name="msg_updated">%1$s updated</string>
+    <string name="msg_not_found">That ingredient no longer exists</string>
+    <string name="err_name_required">Enter an ingredient name</string>
+    <string name="err_name_letters">Name must contain letters</string>
+    <string name="err_name_long">Name is too long (max 40 characters)</string>
+    <string name="err_qty_required">Enter a quantity</string>
+    <string name="err_qty_invalid">Enter a valid number</string>
+    <string name="err_qty_positive">Quantity must be greater than 0</string>
+    <string name="err_qty_large">Quantity is too large</string>
+    <string name="err_unit_invalid">Choose a unit from the list</string>
 </resources>

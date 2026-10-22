@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import android.content.Intent;
 
 /** Pantry tab: lists every ingredient and lets the user delete by swiping. */
 public class PantryFragment extends Fragment {
@@ -51,18 +51,18 @@ public class PantryFragment extends Fragment {
         emptyState = view.findViewById(R.id.empty_state);
         fab = view.findViewById(R.id.fab_add);
 
-        adapter = new PantryAdapter(ingredient ->
-                // TEMPORARY: replaced in Step 7 with an Intent to the Edit screen
-                Toast.makeText(requireContext(),
-                        "Edit screen arrives in Step 7: " + ingredient.getName(),
-                        Toast.LENGTH_SHORT).show());
+        adapter = new PantryAdapter(ingredient -> {
+            Intent intent = new Intent(requireContext(), AddEditIngredientActivity.class);
+            intent.putExtra(AddEditIngredientActivity.EXTRA_INGREDIENT_ID, ingredient.getId());
+            startActivity(intent);
+        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
         attachSwipeToDelete();
 
-        // TEMPORARY: replaced in Step 7 with an Intent to the Add screen
-        fab.setOnClickListener(v -> addSampleItem());
+        fab.setOnClickListener(v -> startActivity(
+                new Intent(requireContext(), AddEditIngredientActivity.class)));
     }
 
     /** Reload on every return to this screen so changes made elsewhere show up. */
@@ -166,21 +166,5 @@ public class PantryFragment extends Fragment {
                 .show();
     }
 
-    // ---------- TEMPORARY: sample data so the list can be tested ----------
 
-    private void addSampleItem() {
-        long day = 24L * 60 * 60 * 1000;
-        long now = System.currentTimeMillis();
-        Ingredient[] samples = {
-                new Ingredient("Eggs", 6, "piece", now + 10 * day),
-                new Ingredient("Milk", 500, "ml", now + 2 * day),
-                new Ingredient("Flour", 1, "kg", 0),
-                new Ingredient("Tomatoes", 4, "piece", now - day)
-        };
-        Ingredient sample = samples[adapter.getItemCount() % samples.length];
-        io.execute(() -> {
-            db.addIngredient(sample);
-            loadPantry();
-        });
-    }
 }
