@@ -48,7 +48,7 @@
             android:background="@drawable/bg_quantity_pill"
             android:paddingHorizontal="14dp"
             android:paddingVertical="6dp"
-            android:textColor="@color/on_green_container"
+            android:textColor="@color/on_blue_container"
             android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>

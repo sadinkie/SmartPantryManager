@@ -3,15 +3,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Smart Pantry palette: fresh green with a warm orange accent -->
-    <color name="pantry_green">#2E7D32</color>
-    <color name="pantry_green_dark">#1B5E20</color>
-    <color name="green_container">#C8E6C9</color>
-    <color name="on_green_container">#0B3D12</color>
+    <!-- Brand palette: blue with a warm orange accent -->
+    <color name="primary_blue">#1565C0</color>
+    <color name="primary_blue_dark">#0D47A1</color>
+    <color name="blue_container">#D6E6FF</color>
+    <color name="on_blue_container">#0A2A5E</color>
     <color name="accent_orange">#EF6C00</color>
     <color name="orange_container">#FFE0B2</color>
-    <color name="surface_cream">#FBFAF5</color>
-    <color name="text_dark">#1C1B1F</color>
+
+    <!-- Status colours keep their meaning: green = good, red = problem -->
+    <color name="success_green">#2E7D32</color>
+    <color name="success_container">#C8E6C9</color>
+    <color name="on_success_container">#0B3D12</color>
     <color name="error_red">#B3261E</color>
+
+    <color name="surface_light">#F6F8FC</color>
+    <color name="text_dark">#1C1B1F</color>
     <color name="text_muted">#5F6368</color>
 </resources>

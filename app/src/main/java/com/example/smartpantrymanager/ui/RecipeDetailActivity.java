@@ -109,8 +109,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     private void bindStatusBanner(int missingCount) {
         if (missingCount == 0) {
-            cardStatus.setCardBackgroundColor(ContextCompat.getColor(this, R.color.green_container));
-            tvStatus.setTextColor(ContextCompat.getColor(this, R.color.on_green_container));
+            cardStatus.setCardBackgroundColor(ContextCompat.getColor(this, R.color.success_container));
+            tvStatus.setTextColor(ContextCompat.getColor(this, R.color.on_success_container));
             tvStatus.setText(R.string.detail_ready);
         } else {
             cardStatus.setCardBackgroundColor(ContextCompat.getColor(this, R.color.orange_container));
@@ -132,7 +132,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
             boolean missing = missingIds.contains(ri.getId());
             icon.setImageResource(missing ? R.drawable.ic_close : R.drawable.ic_check);
             icon.setColorFilter(ContextCompat.getColor(this,
-                    missing ? R.color.error_red : R.color.pantry_green));
+                    missing ? R.color.error_red : R.color.success_green));
             icon.setContentDescription(getString(missing
                     ? R.string.desc_missing_ingredient : R.string.desc_have_ingredient));
             text.setText(describe(ri));

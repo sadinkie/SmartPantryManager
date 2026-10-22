@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/pantry_green"
+                android:textColor="@color/primary_blue"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/section_ingredients"
-                android:textColor="@color/pantry_green_dark"
+                android:textColor="@color/primary_blue_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/section_method"
-                android:textColor="@color/pantry_green_dark"
+                android:textColor="@color/primary_blue_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
