@@ -159,7 +159,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
         }
     }
 
-    /** "200 g pasta", "3 × egg". */
+    /**
+     * "200 g pasta", "3 × egg".
+     */
     private String describe(RecipeIngredient ri) {
         String qty = quantityFormat.format(ri.getQuantity());
         if ("piece".equals(ri.getUnit())) {

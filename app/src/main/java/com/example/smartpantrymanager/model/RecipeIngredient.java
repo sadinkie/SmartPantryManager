@@ -1,6 +1,8 @@
 package com.example.smartpantrymanager.model;
 
-/** One required ingredient line of a recipe, e.g. "200 g pasta". */
+/**
+ * One required ingredient line of a recipe, e.g. "200 g pasta".
+ */
 public class RecipeIngredient {
 
     private int id;
@@ -23,9 +25,23 @@ public class RecipeIngredient {
         this.unit = unit;
     }
 
-    public int getId() { return id; }
-    public int getRecipeId() { return recipeId; }
-    public String getName() { return name; }
-    public double getQuantity() { return quantity; }
-    public String getUnit() { return unit; }
+    public int getId() {
+        return id;
+    }
+
+    public int getRecipeId() {
+        return recipeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
 }

@@ -3,7 +3,9 @@ package com.example.smartpantrymanager.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/** A recipe plus the list of ingredients it requires. */
+/**
+ * A recipe plus the list of ingredients it requires.
+ */
 public class Recipe {
 
     private int id;
@@ -25,12 +27,31 @@ public class Recipe {
         this.steps = steps;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public int getPrepTimeMinutes() { return prepTimeMinutes; }
-    public String getSteps() { return steps; }
+    public int getId() {
+        return id;
+    }
 
-    public List<RecipeIngredient> getIngredients() { return ingredients; }
-    public void setIngredients(List<RecipeIngredient> ingredients) { this.ingredients = ingredients; }
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPrepTimeMinutes() {
+        return prepTimeMinutes;
+    }
+
+    public String getSteps() {
+        return steps;
+    }
+
+    public List<RecipeIngredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<RecipeIngredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }

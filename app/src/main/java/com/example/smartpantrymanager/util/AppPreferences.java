@@ -3,7 +3,9 @@ package com.example.smartpantrymanager.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/** One place for the app's saved settings (backed by SharedPreferences). */
+/**
+ * One place for the app's saved settings (backed by SharedPreferences).
+ */
 public final class AppPreferences {
 
     private static final String FILE_NAME = "smart_pantry_prefs";
@@ -15,7 +17,8 @@ public final class AppPreferences {
     private static final boolean DEFAULT_SHOW_ALMOST_THERE = false;
     private static final boolean DEFAULT_HIGHLIGHT_EXPIRING = true;
 
-    private AppPreferences() { }
+    private AppPreferences() {
+    }
 
     private static SharedPreferences prefs(Context context) {
         return context.getApplicationContext()

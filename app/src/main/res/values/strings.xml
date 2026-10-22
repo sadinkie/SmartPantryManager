@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartPantryManager</string>
+    <string name="app_name">Smart Pantry Manager</string>
     <string name="nav_pantry">Pantry</string>
     <string name="nav_suggestions">Suggestions</string>
     <string name="nav_settings">Settings</string>
@@ -63,4 +63,14 @@
     <string name="settings_section_about">About</string>
     <string name="settings_about_text">Smart Pantry Manager suggests recipes you can cook using only the ingredients you already have, helping cut food waste.</string>
     <string name="settings_version">Version %1$s</string>
+
+    <string name="expiry_none">No expiry date</string>
+    <string name="expiry_expired">Expired on %1$s</string>
+    <string name="expiry_today">Expires today</string>
+    <string name="expiry_on">Expires %1$s</string>
+
+    <plurals name="expiry_in_days">
+        <item quantity="one">Expires in %d day</item>
+        <item quantity="other">Expires in %d days</item>
+    </plurals>
 </resources>

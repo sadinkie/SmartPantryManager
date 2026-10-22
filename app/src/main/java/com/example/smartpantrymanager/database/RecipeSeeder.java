@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Pre-loads the recipe collection the first time the app runs.
  * Safe to call on every launch: it does nothing if recipes already exist.
- *
+ * <p>
  * Units used: g, kg, ml, l, tsp, tbsp, cup, piece
  */
 public class RecipeSeeder {

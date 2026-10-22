@@ -26,20 +26,47 @@ public class Ingredient {
         this.expiryDate = expiryDate;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getQuantity() { return quantity; }
-    public void setQuantity(double quantity) { this.quantity = quantity; }
+    public String getName() {
+        return name;
+    }
 
-    public String getUnit() { return unit; }
-    public void setUnit(String unit) { this.unit = unit; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public long getExpiryDate() { return expiryDate; }
-    public void setExpiryDate(long expiryDate) { this.expiryDate = expiryDate; }
+    public double getQuantity() {
+        return quantity;
+    }
 
-    public boolean hasExpiryDate() { return expiryDate > 0; }
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public long getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(long expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public boolean hasExpiryDate() {
+        return expiryDate > 0;
+    }
 }

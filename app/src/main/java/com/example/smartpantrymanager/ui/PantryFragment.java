@@ -1,6 +1,7 @@
 package com.example.smartpantrymanager.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,16 +19,17 @@ import com.example.smartpantrymanager.R;
 import com.example.smartpantrymanager.adapter.PantryAdapter;
 import com.example.smartpantrymanager.database.DatabaseHelper;
 import com.example.smartpantrymanager.model.Ingredient;
+import com.example.smartpantrymanager.util.AppPreferences;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import android.content.Intent;
-import com.example.smartpantrymanager.util.AppPreferences;
 
-/** Pantry tab: lists every ingredient and lets the user delete by swiping. */
+/**
+ * Pantry tab: lists every ingredient and lets the user delete by swiping.
+ */
 public class PantryFragment extends Fragment {
 
     private DatabaseHelper db;
@@ -35,6 +37,7 @@ public class PantryFragment extends Fragment {
     private RecyclerView recyclerView;
     private View emptyState;
     private FloatingActionButton fab;
+    private Snackbar undoSnackbar;
 
     // Database work runs off the main thread so the UI never freezes.
     private final ExecutorService io = Executors.newSingleThreadExecutor();
@@ -66,7 +69,9 @@ public class PantryFragment extends Fragment {
                 new Intent(requireContext(), AddEditIngredientActivity.class)));
     }
 
-    /** Reload on every return to this screen so changes made elsewhere show up. */
+    /**
+     * Reload on every return to this screen so changes made elsewhere show up.
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -156,7 +161,7 @@ public class PantryFragment extends Fragment {
         updateEmptyState();
         io.execute(() -> db.deleteIngredient(removed.getId())); // then the database
 
-        Snackbar.make(requireView(),
+        undoSnackbar = Snackbar.make(requireView(),
                         getString(R.string.pantry_removed, removed.getName()),
                         Snackbar.LENGTH_LONG)
                 .setAnchorView(fab)
@@ -164,8 +169,19 @@ public class PantryFragment extends Fragment {
                     db.addIngredient(new Ingredient(removed.getName(), removed.getQuantity(),
                             removed.getUnit(), removed.getExpiryDate()));
                     loadPantry();
-                }))
-                .show();
+                }));
+        undoSnackbar.show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // The Snackbar lives in the Activity's content view, so remove it together
+        // with this screen. Otherwise Undo could fire after the executor is shut down.
+        if (undoSnackbar != null) {
+            undoSnackbar.dismiss();
+            undoSnackbar = null;
+        }
     }
 
 

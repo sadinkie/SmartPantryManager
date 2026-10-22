@@ -14,7 +14,9 @@ import com.example.smartpantrymanager.R;
 import com.example.smartpantrymanager.util.AppPreferences;
 import com.google.android.material.materialswitch.MaterialSwitch;
 
-/** Settings tab: two saved on/off preferences plus an About card. */
+/**
+ * Settings tab: two saved on/off preferences plus an About card.
+ */
 public class SettingsFragment extends Fragment {
 
     public SettingsFragment() {

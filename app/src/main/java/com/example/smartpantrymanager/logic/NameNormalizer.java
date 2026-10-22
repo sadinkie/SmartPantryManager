@@ -11,7 +11,7 @@ import java.util.Set;
  * Turns free-typed ingredient names into a comparable "key".
  * Handles letter case, extra spaces, punctuation, simple descriptors
  * ("fresh", "large", ...) and singular/plural forms.
- *
+ * <p>
  * Both the pantry name and the recipe name go through the same method, so
  * even if a plural rule is imperfect, both sides still agree with each other.
  */
@@ -21,7 +21,8 @@ public final class NameNormalizer {
             "fresh", "large", "small", "medium", "ripe", "chopped", "diced",
             "sliced", "grated", "minced", "frozen", "raw"));
 
-    private NameNormalizer() { }
+    private NameNormalizer() {
+    }
 
     public static String normalize(String name) {
         if (name == null) return "";
@@ -55,7 +56,9 @@ public final class NameNormalizer {
         return result.toString();
     }
 
-    /** Simple English singular rules: enough for pantry items, not full NLP. */
+    /**
+     * Simple English singular rules: enough for pantry items, not full NLP.
+     */
     static String singularize(String w) {
         String s = w;
         if (w.length() > 3) {

@@ -32,7 +32,9 @@ import java.util.concurrent.Executors;
  */
 public class AddEditIngredientActivity extends AppCompatActivity {
 
-    /** Intent extra holding the id of the ingredient to edit (absent = add mode). */
+    /**
+     * Intent extra holding the id of the ingredient to edit (absent = add mode).
+     */
     public static final String EXTRA_INGREDIENT_ID = "extra_ingredient_id";
 
     private static final int NO_ID = -1;
@@ -137,7 +139,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
             return; // errors are already shown on the fields
         }
 
-        String name = capitalizeFirst(text(etName));
+        String name = capitalizeFirst(text(etName).replaceAll("\\s+", " "));
         double quantity = Double.parseDouble(text(etQuantity).replace(',', '.'));
         String unit = text(actvUnit);
         long expiry = expiryMillis;
@@ -161,7 +163,9 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
     // ---------- INPUT VALIDATION ----------
 
-    /** Checks every field, showing an error under each invalid one. */
+    /**
+     * Checks every field, showing an error under each invalid one.
+     */
     private boolean validate() {
         boolean valid = true;
 
@@ -243,7 +247,9 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         btnClearDate.setVisibility(hasDate ? android.view.View.VISIBLE : android.view.View.GONE);
     }
 
-    /** The date picker works in UTC; we store LOCAL midnight so the date never shifts. */
+    /**
+     * The date picker works in UTC; we store LOCAL midnight so the date never shifts.
+     */
     private static long utcToLocalMidnight(long utcMillis) {
         Calendar utc = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         utc.setTimeInMillis(utcMillis);

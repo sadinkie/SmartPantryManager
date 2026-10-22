@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setSelectedItemId(startTab);
     }
 
-    /** Swaps the Fragment in the container and updates the toolbar title. */
+    /**
+     * Swaps the Fragment in the container and updates the toolbar title.
+     */
     private void showTab(int itemId) {
         Fragment fragment;
         int titleRes;

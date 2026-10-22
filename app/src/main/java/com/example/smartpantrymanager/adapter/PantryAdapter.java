@@ -20,10 +20,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-/** Binds the pantry's Ingredient list to the rows of a RecyclerView. */
+/**
+ * Binds the pantry's Ingredient list to the rows of a RecyclerView.
+ */
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder> {
 
-    /** Lets the screen react when a row is tapped (used for editing in Step 7). */
+    /**
+     * Lets the screen react when a row is tapped (used for editing in Step 7).
+     */
     public interface OnItemClickListener {
         void onItemClick(Ingredient ingredient);
     }
@@ -50,7 +54,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-    /** Removes a row with an animation and returns the removed item. */
+    /**
+     * Removes a row with an animation and returns the removed item.
+     */
     public Ingredient removeAt(int position) {
         Ingredient removed = items.remove(position);
         notifyItemRemoved(position);
@@ -96,28 +102,31 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
 
     private void bindExpiry(TextView view, Ingredient item, Context context) {
         if (!item.hasExpiryDate()) {
-            view.setText("No expiry date");
+            view.setText(R.string.expiry_none);
             view.setTextColor(ContextCompat.getColor(context, R.color.text_muted));
             return;
         }
 
-        long days = daysUntil(item.getExpiryDate());
+        int days = (int) daysUntil(item.getExpiryDate());
         String date = dateFormat.format(item.getExpiryDate());
 
         if (days < 0) {
-            view.setText("Expired on " + date);
+            view.setText(context.getString(R.string.expiry_expired, date));
             view.setTextColor(ContextCompat.getColor(context, R.color.error_red));
         } else if (highlightExpiring && days <= EXPIRING_SOON_DAYS) {
-            view.setText(days == 0 ? "Expires today"
-                    : "Expires in " + days + (days == 1 ? " day" : " days"));
+            view.setText(days == 0
+                    ? context.getString(R.string.expiry_today)
+                    : context.getResources().getQuantityString(R.plurals.expiry_in_days, days, days));
             view.setTextColor(ContextCompat.getColor(context, R.color.accent_orange));
         } else {
-            view.setText("Expires " + date);
+            view.setText(context.getString(R.string.expiry_on, date));
             view.setTextColor(ContextCompat.getColor(context, R.color.text_muted));
         }
     }
 
-    /** Whole calendar days from today until the given date (negative = past). */
+    /**
+     * Whole calendar days from today until the given date (negative = past).
+     */
     private static long daysUntil(long expiryMillis) {
         return Math.round((startOfDay(expiryMillis) - startOfDay(System.currentTimeMillis()))
                 / (double) DAY_MS);
@@ -137,7 +146,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         return "piece".equals(unit) ? "pcs" : unit;
     }
 
-    /** Holds references to a row's views so findViewById runs once per row, not per bind. */
+    /**
+     * Holds references to a row's views so findViewById runs once per row, not per bind.
+     */
     static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView name;
         final TextView expiry;

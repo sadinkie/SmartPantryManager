@@ -5,7 +5,9 @@ import android.app.Application;
 import com.example.smartpantrymanager.database.DatabaseHelper;
 import com.example.smartpantrymanager.database.RecipeSeeder;
 
-/** Runs once per app process, before any Activity is created. */
+/**
+ * Runs once per app process, before any Activity is created.
+ */
 public class SmartPantryApp extends Application {
 
     @Override

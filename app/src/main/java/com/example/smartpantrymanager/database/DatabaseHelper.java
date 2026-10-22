@@ -48,7 +48,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static DatabaseHelper instance;
 
-    /** Singleton so the whole app shares one connection. */
+    /**
+     * Singleton so the whole app shares one connection.
+     */
     public static synchronized DatabaseHelper getInstance(Context context) {
         if (instance == null) {
             instance = new DatabaseHelper(context.getApplicationContext());
@@ -102,12 +104,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // =====================  PANTRY: CRUD  =====================
 
-    /** CREATE: returns the new row id, or -1 on failure. */
+    /**
+     * CREATE: returns the new row id, or -1 on failure.
+     */
     public long addIngredient(Ingredient ingredient) {
         return getWritableDatabase().insert(T_ING, null, toValues(ingredient));
     }
 
-    /** READ: all pantry items, alphabetical. */
+    /**
+     * READ: all pantry items, alphabetical.
+     */
     public List<Ingredient> getAllIngredients() {
         List<Ingredient> list = new ArrayList<>();
         try (Cursor c = getReadableDatabase().query(
@@ -119,7 +125,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    /** READ: a single pantry item, or null if it doesn't exist. */
+    /**
+     * READ: a single pantry item, or null if it doesn't exist.
+     */
     public Ingredient getIngredientById(int id) {
         try (Cursor c = getReadableDatabase().query(
                 T_ING, null, I_ID + "=?", new String[]{String.valueOf(id)},
@@ -128,14 +136,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /** UPDATE: returns the number of rows changed (1 on success). */
+    /**
+     * UPDATE: returns the number of rows changed (1 on success).
+     */
     public int updateIngredient(Ingredient ingredient) {
         return getWritableDatabase().update(
                 T_ING, toValues(ingredient),
                 I_ID + "=?", new String[]{String.valueOf(ingredient.getId())});
     }
 
-    /** DELETE: returns the number of rows removed (1 on success). */
+    /**
+     * DELETE: returns the number of rows removed (1 on success).
+     */
     public int deleteIngredient(int id) {
         return getWritableDatabase().delete(
                 T_ING, I_ID + "=?", new String[]{String.valueOf(id)});
@@ -196,7 +208,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /** READ: every recipe, each with its ingredient list filled in. */
+    /**
+     * READ: every recipe, each with its ingredient list filled in.
+     */
     public List<Recipe> getAllRecipes() {
         List<Recipe> list = new ArrayList<>();
         try (Cursor c = getReadableDatabase().query(
@@ -210,7 +224,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    /** READ: one recipe with its ingredients, or null if not found. */
+    /**
+     * READ: one recipe with its ingredients, or null if not found.
+     */
     public Recipe getRecipeById(int id) {
         try (Cursor c = getReadableDatabase().query(
                 T_REC, null, R_ID + "=?", new String[]{String.valueOf(id)},

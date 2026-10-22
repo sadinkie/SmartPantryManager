@@ -26,7 +26,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         void onRecipeClick(Recipe recipe);
     }
 
-    /** One row of the list: either a header or a recipe card. */
+    /**
+     * One row of the list: either a header or a recipe card.
+     */
     public static class Row {
         private final boolean header;
         private final String title;
@@ -44,7 +46,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return new Row(true, title, null, null);
         }
 
-        /** note is optional extra text, e.g. "Short on: butter". */
+        /**
+         * note is optional extra text, e.g. "Short on: butter".
+         */
         public static Row recipe(Recipe recipe, @Nullable String note) {
             return new Row(false, null, recipe, note);
         }

@@ -19,9 +19,12 @@ public final class RecipeMatcher {
 
     private static final double EPSILON = 1e-9; // guards against double rounding
 
-    private RecipeMatcher() { }
+    private RecipeMatcher() {
+    }
 
-    /** Recipes the user can cook right now (zero missing ingredients). */
+    /**
+     * Recipes the user can cook right now (zero missing ingredients).
+     */
     public static List<Recipe> findStrictMatches(List<Recipe> recipes, List<Ingredient> pantry) {
         Map<String, Double> totals = buildPantryTotals(pantry);
         List<Recipe> matches = new ArrayList<>();
@@ -33,7 +36,9 @@ public final class RecipeMatcher {
         return matches;
     }
 
-    /** OPTIONAL BONUS: recipes missing exactly ONE ingredient (shown separately). */
+    /**
+     * OPTIONAL BONUS: recipes missing exactly ONE ingredient (shown separately).
+     */
     public static List<Recipe> findAlmostThere(List<Recipe> recipes, List<Ingredient> pantry) {
         Map<String, Double> totals = buildPantryTotals(pantry);
         List<Recipe> almost = new ArrayList<>();
@@ -46,13 +51,17 @@ public final class RecipeMatcher {
         return almost;
     }
 
-    /** True only when nothing is missing. A recipe with no ingredients never qualifies. */
+    /**
+     * True only when nothing is missing. A recipe with no ingredients never qualifies.
+     */
     public static boolean canMake(Recipe recipe, Map<String, Double> pantryTotals) {
         return !recipe.getIngredients().isEmpty()
                 && getMissingIngredients(recipe, pantryTotals).isEmpty();
     }
 
-    /** The recipe ingredients the pantry cannot fully cover. */
+    /**
+     * The recipe ingredients the pantry cannot fully cover.
+     */
     public static List<RecipeIngredient> getMissingIngredients(
             Recipe recipe, Map<String, Double> pantryTotals) {
         List<RecipeIngredient> missing = new ArrayList<>();
